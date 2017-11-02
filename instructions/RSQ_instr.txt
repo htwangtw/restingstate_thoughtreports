@@ -1,0 +1,14 @@
+The rest period is now finished.
+
+We are interested in the thoughts that you experienced during the rest period. A list of descriptions and a rating scale will be presented on the screen.  Please use the four buttons to indicate how much each description reflects your experience.
+
+Press "1" to move the tick mark towards 0, indicates "not at all".
+Press "2" to move the tick mark towards 1, indicates "completely".
+Press "4" to confirm the rating.
+
+Please note that there are no right or wrong answers.
+Answer the questions as fast as possible.
+
+To start the questionnaire, press "4"1.
+
+Please remain still in the scanner.
