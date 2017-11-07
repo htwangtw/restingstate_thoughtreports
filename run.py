@@ -17,7 +17,7 @@ INFO = {
     'Subject': 'R0001_001',  # compulsory
     }
 settings = {
-    'window_size': ,'full_screen',
+    'window_size': 'full_screen',
     #'window_size': [800, 600],
     'mouse_visible': False,
     'logging_level': logging.INFO
