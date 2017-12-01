@@ -68,6 +68,11 @@ if __name__ == "__main__":
     # wait trigger
     trigger.draw()
     Experiment.window.flip()
+    
+    if event.getKeys(keyList=['escape']):
+        print('user quit')
+        core.quit()
+
     event.waitKeys(keyList=['5'])
 
     # dummy volumes
