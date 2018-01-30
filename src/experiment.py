@@ -162,6 +162,7 @@ def get_keyboard(timer, respkeylist, keyans):
         keyans : list str
             what each key in respkeylist means. 
             The length of this list should be the same to respkeylist.
+            type check yet to be implimented 
             
         
     Return:
