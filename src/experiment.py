@@ -143,6 +143,57 @@ class instructions(object):
                 core.wait(duration)
             else:
                 event.waitKeys(keyList=['4'])
+            
+            if event.getKeys(keyList=['escape']):
+                print('user quit')
+                core.quit()
+
+def get_keyboard(timer, respkeylist, keyans):
+    '''
+    Get key board response
+    Args:
+    
+        timer : obj
+            the timer for the experiment
+        
+        respkeylist : list str 
+            a list of key names you whish to capture
+        
+        keyans : list str
+            what each key in respkeylist means. 
+            The length of this list should be the same to respkeylist.
+            
+        
+    Return:
+        KeyResp : str
+            the name of the key being pressed
+        
+        Resp : str
+            what KeyResp actually means
+        
+        KeyPressTime : float
+            The clock time when the key press occurred
+    '''
+    
+    def quitEXP(endExpNow):
+        if endExpNow:
+            print 'user cancel'
+            core.quit()
+    
+    Resp = None
+    KeyResp = None
+    KeyPressTime = np.nan
+    keylist = ['escape'] + respkeylist
+
+    for key, time in event.getKeys(keyList=keylist, timeStamped=timer):
+        if key in ['escape']:
+            quitEXP(True)
+        else:
+            KeyResp, KeyPressTime = key, time
+    # get what the key press means
+    if KeyResp:
+        Resp = keyans[respkeylist.index(KeyResp)]
+    return KeyResp, Resp, KeyPressTime
 
 
 def subject_info(experiment_info):
