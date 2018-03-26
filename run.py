@@ -15,6 +15,7 @@ from src.fileIO import load_conditions_dict, write_csv, read_only
 INFO = {
     'Experiment': 'resting_state',  # compulsory
     'Subject': 'R0001_001',  # compulsory
+    'Thought report': ['York', 'NKI'],
     }
 settings = {
     'window_size': 'full_screen',
@@ -29,16 +30,12 @@ tr = 3
 slice_per_vol = 60
 RS_length = 9
 
-# RSQ path
-PATH = '/groups/Projects/P1336/resting_state/resting_Q.csv'
-questions, headers = load_conditions_dict(PATH)
-headers += ['StartTime', 'Rating', 'RT', 'IDNO']
-shuffle(questions)
-
-RSQ_txt = '/groups/Projects/P1336/resting_state/instructions/RSQ_instr.txt'
-end_txt = '/groups/Projects/P1336/resting_state/instructions/end_instr.txt'
 # collect participant info
 experiment_info = subject_info(INFO)
+
+RSQ_txt = './instructions/RSQ_instr.txt'
+end_txt = './instructions/end_instr.txt'
+
 # now run this thing
 if __name__ == "__main__":
     # set working directory as the location of this file
@@ -46,6 +43,12 @@ if __name__ == "__main__":
                                ).decode(sys.getfilesystemencoding())
     os.chdir(_thisDir)
 
+    # load RSQ path
+    PATH = './ThoughtReports/{}.csv'.format(experiment_info['Thought report'])
+    questions, headers = load_conditions_dict(PATH)
+    headers += ['StartTime', 'Rating', 'RT', 'IDNO']
+    shuffle(questions)
+    
     # set log file
     event_logger(settings['logging_level'], experiment_info['LogFile'])
 
