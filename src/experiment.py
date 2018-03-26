@@ -74,8 +74,8 @@ class Question(object):
         self.window = window
         self.description = visual.TextStim(self.window, text=None, height=34, wrapWidth=1100, color=color, font=sans)
         self.questions = questions
-        self.rating = visual.RatingScale(self.window, low=1, high=10, markerStart=5,
-                precision=10, tickMarks=[1, 10],
+        self.rating = visual.RatingScale(self.window, low=1, high=9, markerStart=4,
+                precision=10, tickMarks=[1, 9],
                 leftKeys='1', rightKeys='2', acceptKeys='4')
 
     def set(self, trial):
