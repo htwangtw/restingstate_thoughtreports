@@ -44,8 +44,8 @@ if __name__ == "__main__":
     os.chdir(_thisDir)
 
     # load RSQ path
-    PATH = './ThoughtReports/{}.csv'.format(experiment_info['Thought report'])
-    questions, headers = load_conditions_dict(PATH)
+    es_path = './ThoughtReports/{}.csv'.format(experiment_info['Thought report'])
+    questions, headers = load_conditions_dict(es_path)
     headers += ['StartTime', 'Rating', 'RT', 'IDNO']
     shuffle(questions)
     
